@@ -4,23 +4,20 @@ app = FastAPI()
 
 @app.get("/")
 def home():
-    return {"message": "Backend running"}
+    return {"message": "Backend Running"}
 
-@app.get("/hello")
-def hello():
-    return {"message": "Hello Anushree"}
+@app.get("/hello/{name}")
+def greet(name: str):
+    return {"Message": f"Hello {name}"}
 
-@app.get("/about")
-def about():
-    return {
-        "name": "Anushree",
-        "goal": "AI Engineer"
-    }
+@app.get("/user/{id}")
+def get_user_id(id: int):
+    return {"user_id is": id}
 
-@app.get("/user/{name}")
-def user(name: str):
-    return {"user": name}
+@app.get("/search")
+def search_name(name: str):
+    return {"searched_name": name}
 
-@app.get("/square/{num}")
-def square(num: int):
-    return {"square": num * num}
+@app.get("/movie")
+def movie_name(name: str):
+    return {"Movie name is": name}
